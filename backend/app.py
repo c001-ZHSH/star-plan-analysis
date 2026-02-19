@@ -4,6 +4,7 @@ import uuid
 import os
 import time
 import sys
+import webbrowser
 from star_scraper import StarPlanScraper
 
 # Handle PyInstaller static path
@@ -157,8 +158,21 @@ def download_file(job_id):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5002))
+    
+    def open_browser():
+        time.sleep(1.5) # Wait for server to start
+        webbrowser.open_new(f'http://localhost:{port}')
+
     print(f"Starting server on http://localhost:{port}")
     
     # Disable reloader if frozen to avoid PyInstaller issues
     use_reloader = not getattr(sys, 'frozen', False)
+    
+    # Only open browser if running as frozen executable (user convenience)
+    # or if we want it in dev mode too. Let's do it for frozen mainly, 
+    # but user asked for "local version", which implies the executable.
+    # To be safe and nice, let's always open it if it's the main entry point.
+    if getattr(sys, 'frozen', False):
+        threading.Thread(target=open_browser).start()
+        
     app.run(host='0.0.0.0', port=port, debug=True, use_reloader=use_reloader)
