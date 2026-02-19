@@ -171,8 +171,13 @@ if __name__ == '__main__':
     # Only open browser if running as frozen executable (user convenience)
     # or if we want it in dev mode too. Let's do it for frozen mainly, 
     # but user asked for "local version", which implies the executable.
-    # To be safe and nice, let's always open it if it's the main entry point.
-    if getattr(sys, 'frozen', False):
+    # Determine if we are frozen
+    is_frozen = getattr(sys, 'frozen', False)
+    
+    # Only open browser if running as frozen executable (user convenience)
+    if is_frozen:
         threading.Thread(target=open_browser).start()
         
-    app.run(host='0.0.0.0', port=port, debug=True, use_reloader=use_reloader)
+    # In frozen mode, debug must be False to avoid reloader/debugger issues
+    # that cause restarts or weird behavior like auto-refreshing browser.
+    app.run(host='0.0.0.0', port=port, debug=not is_frozen, use_reloader=not is_frozen)
