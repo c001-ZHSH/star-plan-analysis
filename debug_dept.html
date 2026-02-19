@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+		<html>
+		<head>
+			<meta charset="utf-8">
+	
+			<link rel="stylesheet" type="text/css" href="font.css">
+			<link rel="stylesheet" type="text/css" href="star_style.css">
+			<script src="jquery.min.js"></script>
+		</head>
+		<body><center><br>
+			<table class="gsd" border="1" style="border:4px solid #000;">
+			<tr>
+				<td class="school_title" colspan="2" rowspan="2" style="width:220px;height:60px;">
+					<div class="colname">國立臺灣大學</div>
+					<div class="gsdname" style="font-size:20px;">中國文學系</div>
+				</td>
+				<td colspan="2" style="width:180px;height:35px;">學測、英聽檢定</td>
+				<td style="width:600px;">分發比序項目</td>
+			</tr>
+			<tr>
+				<td style="width:90px;height:25px;">科目</td>
+				<td style="width:90px;height:25px;">標準</td>
+				<td rowspan="7" style="text-align:left;line-height:25px;padding-left:9px;">
+					1、在校學業成績全校排名百分比<br>
+					2、學測國文級分<br>
+					3、學測英文級分<br>
+					4、國語文學業成績總平均全校排名百分比<br>
+					5、英語文學業成績總平均全校排名百分比<br>
+					6、學測社會級分<br>
+					7、歷史學業成績總平均全校排名百分比
+				</td>
+			</tr>
+			<tr>
+				<td class="font_bold" style="width:105px;height:23px;color:#FF0000">校系代碼</td>
+				<td class="font_bold" style="width:115px;color:#FF0000">00101</td>
+				<td rowspan="6" style="line-height:22px;">國文<br>英文<br>數學A<br>數學B<br>社會<br>自然<br>英聽</td>
+				<td rowspan="6" style="line-height:22px;">頂標<br>前標<br>均標<br>均標<br>前標<br>--<br>--</td>
+			</tr>
+			<tr>
+				<td style="height:22px;">學群類別</td>
+				<td>第一類學群</td>
+			</tr>
+			<tr>
+				<td style="height:22px;border-bottom:1px dashed #000;">招生名額</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td style="height:22px;border-top:none;">可填志願數</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td style="height:22px;border-bottom:none;">外加名額</td>
+				<td>無</td>
+			</tr>
+			<tr>
+				<td style="height:22px;border-top:1px dashed #000;">可填志願數</td>
+				<td>--</td>
+			</tr>
+			<tr>
+				<td style="height:115px;">備註</td>
+				<td colspan="4" class="common_note" style="width:890px;text-align:left;vertical-align:text-top;word-break:break-all;">1.本系教育目標在厚植學生人文能力，以「語文表達能力」為主，「經典詮釋能力」為輔。開設課程強調文獻解讀的紮實訓練，進而啟發學生之感性體悟、理性認知及創作或研究興趣。適合對中國文學、語言與學術思想具廣泛興趣的學生。<br />
+2.聯絡電話：（02）33664003<br />
+3.本系網址：http://www.cl.ntu.edu.tw</td>
+			</tr>
+			</table>
+		<script>
+			$(function(){
+				var common_ft = $(".common_note");
+				for(var j=0;j<common_ft.length;j++){
+					if(common_ft[j].offsetHeight > 150){
+						common_ft[j].style.fontSize = Number(17)+"px";
+					}
+				}
+				var star8_ft = $(".star8_note");
+				for(var j=0;j<star8_ft.length;j++){
+					if(star8_ft[j].offsetHeight > 80){
+						star8_ft[j].style.fontSize = Number(16)+"px";
+					}
+				}
+			});
+		</script>
+		</center></body>
+		</html>

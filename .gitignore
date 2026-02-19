@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+.DS_Store
+dist/
+build/
+*.spec
+star_plan_analysis_*.xlsx
+StarPlanAnalysis

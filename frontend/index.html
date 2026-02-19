@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大學繁星校系分則分析系統</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>大學繁星推薦校系分則分析系統</h1>
+            <p>輸入查詢頁面網址，自動整理所有校系分則資料</p>
+        </header>
+
+        <main>
+            <div class="input-group">
+                <input type="text" id="urlInput"
+                    placeholder="請貼上校系分則查詢頁面網址 (例如: https://www.cac.edu.tw/.../TotalGsdShow.htm)"
+                    value="https://www.cac.edu.tw/star115/system/ColQry_115xStarFoRstU_BT65fwZ9z/TotalGsdShow.htm">
+                <button id="fetchBtn" class="secondary-btn">1. 取得學校列表</button>
+            </div>
+
+            <div id="selectionSection" class="hidden selection-container">
+                <h3>選擇要分析的學校</h3>
+                <div class="selection-controls">
+                    <label><input type="checkbox" id="selectAll"> 全選</label>
+                    <span id="selectedCount">已選: 0</span>
+                </div>
+                <div id="uniList" class="uni-list">
+                    <!-- Checkboxes will be injected here -->
+                </div>
+                <button id="startBtn" style="margin-top: 1rem; width: 100%;">2. 開始分析選定學校</button>
+            </div>
+
+            <div id="statusSection" class="hidden">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="statusText">準備就緒...</p>
+                <div id="logArea"></div>
+            </div>
+
+            <div id="resultSection" class="hidden">
+                <div class="success-message">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="currentColor"
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    <h3>分析完成！</h3>
+                    <p>您的資料已經整理完畢。</p>
+                </div>
+
+                <div id="previewContainer" class="preview-container hidden">
+                    <h4>資料預覽 (前 10 筆)</h4>
+                    <div class="table-wrapper">
+                        <table id="previewTable">
+                            <thead>
+                                <tr>
+                                    <th>學校名稱</th>
+                                    <th>學系名稱</th>
+                                    <th>招生名額</th>
+                                    <th>檢定標準</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <button id="downloadBtn" class="download-btn">下載 Excel 總表</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 大學繁星校系分則分析系統</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
